@@ -4,12 +4,12 @@ import { BiMenuAltRight } from 'react-icons/bi';
 import { AiOutlineCloseSquare } from 'react-icons/ai';
 import styles from '@/styles/Header.module.scss';
 
-export const Header = () => {
+export const Header: React.FC = (): JSX.Element => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuToggler = () => setMenuOpen((p) => !p);
 
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.header__content}>
         <div>
           <span className={styles.logo}>Transport Planner</span>
@@ -32,7 +32,7 @@ export const Header = () => {
           </button>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

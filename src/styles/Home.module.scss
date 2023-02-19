@@ -1,10 +1,20 @@
+@import './variables.scss';
+
 .main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 6rem;
-  min-height: 100vh;
+  min-height: 100%;
+}
+
+.home__heading {
+  //color: #ff4411;
+  color: $heading;
+  font-size: 48px;
+  font-family: 'Signika', sans-serif;
+  padding-bottom: 10px;
 }
 
 .description {
@@ -120,7 +130,7 @@
   transform: translateZ(0);
   border-radius: var(--border-radius);
   overflow: hidden;
-  box-shadow: 0px 2px 8px -1px #0000001a;
+  box-shadow: 0 2 8 -1 #0000001a;
 }
 
 .thirteen::before,
