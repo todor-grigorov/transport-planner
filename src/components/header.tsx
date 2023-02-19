@@ -9,7 +9,7 @@ export const Header = () => {
   const menuToggler = () => setMenuOpen((p) => !p);
 
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.header__content}>
         <div>
           <span className={styles.logo}>Transport Planner</span>
@@ -32,7 +32,7 @@ export const Header = () => {
           </button>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
