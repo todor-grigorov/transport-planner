@@ -4,7 +4,9 @@ import styles from '@/styles/Home.module.scss';
 const HomePage: React.FC = (): JSX.Element => {
   return (
     <div className={styles.main}>
-      <h1 className={styles.home__heading}>Start your dream trip today!</h1>
+      <h1 data-testid="main-heading" className={styles.home__heading}>
+        Start your dream trip today!
+      </h1>
     </div>
   );
 };
