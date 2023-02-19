@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '@/styles/Home.module.scss';
-import PlannerForm from '@/components/planner-form';
+import PlannerForm from './planner-form';
 
 const HomePage: React.FC = (): JSX.Element => {
   return (
