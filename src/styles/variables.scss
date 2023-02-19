@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 
-$ubuntu-font: "Ubuntu", sans-serif;
+$ubuntu-font: 'Ubuntu', sans-serif;
 
 $bg: rgb(255, 255, 255);
 $bg2: rgb(0, 0, 0);
 $text: rgb(15, 15, 15);
 $text2: rgb(240, 240, 240);
+$heading: #ff4411;
 $primary: rgb(22, 210, 247);
 
 $spacing-sm: 8px;
@@ -22,7 +23,7 @@ $xl: 75em;
 @mixin breakpoint($point) {
   @if $point == md {
     @media (min-width: $md) {
-    @content;
+      @content;
+    }
   }
-}
 }
