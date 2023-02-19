@@ -22,17 +22,13 @@ const PlannerForm: React.FC = (): JSX.Element => {
             .min(2, 'Destination to is too short'),
         })}
         onSubmit={async (values, formikHelpers) => {
-          console.log(values);
           const { departure, destination } = values;
+          // const obj = { slug: [departure, destination] };
 
           try {
-            await fetch('/api/locations', {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ departure, destination }),
-            });
+            await fetch(
+              `/api/locations?departure=${departure}&destination=${destination}`
+            );
           } catch (e) {
             console.log('ERROR', e);
           }
