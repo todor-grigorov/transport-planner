@@ -30,8 +30,11 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "cypress": "^12.6.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "jest": "^29.4.3",
-    "jest-environment-jsdom": "^29.4.3"
+    "jest-environment-jsdom": "^29.4.3",
+    "prettier": "^2.8.4"
   }
 }
