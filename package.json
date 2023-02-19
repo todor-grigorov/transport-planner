@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress:open": "yarn cypress open"
   },
   "dependencies": {
     "@next/font": "13.1.6",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "cypress": "^12.6.0",
     "husky": "^8.0.3"
   }
 }
