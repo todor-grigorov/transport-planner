@@ -100,6 +100,17 @@ a {
   text-decoration: none;
 }
 
+main {
+  width: 100%;
+  max-width: 1250px;
+  margin: auto;
+  padding: 80px 30px;
+  min-height: 550px;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
