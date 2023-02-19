@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '@/styles/Home.module.scss';
 
-const HomePage = () => {
+const HomePage: React.FC = (): JSX.Element => {
   return (
     <div className={styles.main}>
       <h1>Start your dream trip today!</h1>
