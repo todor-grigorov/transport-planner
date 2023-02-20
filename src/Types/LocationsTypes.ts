@@ -1,4 +1,11 @@
-export type Locations = {
+export type ConnectionsResponse = {
+  connections: Connection[];
+  from: Checkpoint;
+  to: Checkpoint;
+  stations: Location[];
+};
+
+export type Connection = {
   from: Checkpoint;
   to: Checkpoint;
   duration: string;
@@ -13,7 +20,7 @@ export type Locations = {
 export type Checkpoint = {
   station: Location;
   arrival: string | null;
-  arrivalTimestamp: string | null;
+  arrivalTimestamp: number;
   departure: string;
   departureTimestamp: number;
   delay: string | null;

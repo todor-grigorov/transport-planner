@@ -1,3 +1,9 @@
+.connections__container {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
 .header__container {
   width: 100%;
   display: flex;
@@ -15,3 +21,97 @@
     font-size: 1.2rem;
   }
 }
+
+.locationCardsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.locationCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  //max-width: 50%;
+  height: 144px;
+  width: 40rem;
+  margin-bottom: 1rem;
+}
+
+.locationCard__middleRow_departureInfo,
+.locationCard__middleRow_destinationInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0.25;
+
+  > p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.locationCard__middleRow {
+  display: flex;
+}
+
+.locationCard__middleRow_journeyInfo {
+  display: flex;
+  flex: 1;
+}
+
+.durationLine {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid black;
+  //padding-top: 35px;
+  margin-top: 18px;
+
+  div {
+    background-color: white;
+    font-weight: bold;
+    color: #7ea5cc;
+    border: 2px solid black;
+    //margin-top: -45px;
+    margin-top: -9px;
+    width: 15px;
+    height: 15px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    z-index: 99;
+  }
+}
+
+//.durationLine {
+//  display: block;
+//  text-align: left !important;
+//  border-top: 2px solid #505050;
+//  padding-top: 5px;
+//  padding-bottom: 5px;
+//  margin: 15px auto 0;
+//  width: 100%;
+//  position: relative;
+//  line-height: 10px;
+//}
+//.durationLine:after,
+//.durationLine:before {
+//  width: 9px;
+//  height: 9px;
+//  background: #fff;
+//  border-radius: 100%;
+//  position: absolute;
+//  top: -7px;
+//  border: 2px solid #505050;
+//}
+//
+//.durationLine:after,
+//.durationLine:before {
+//  content: '';
+//}
+//
+//.durationLine:after {
+//  right: 0;
+//}
