@@ -3,6 +3,7 @@ import { SyntheticEvent } from 'react';
 
 interface ParentProps {
   text: string;
+  loading: boolean;
   handler: (
     e: SyntheticEvent<HTMLButtonElement, MouseEvent>,
     text: string
@@ -11,9 +12,13 @@ interface ParentProps {
 
 type Props = ParentProps;
 
-const Button: React.FC<Props> = ({ text, handler }): JSX.Element => {
+const Button: React.FC<Props> = ({ text, handler, loading }): JSX.Element => {
   return (
-    <button onClick={(e) => handler(e, text)} className={styles.button}>
+    <button
+      onClick={(e) => handler(e, text)}
+      className={styles.button}
+      disabled={loading}
+    >
       {text}
     </button>
   );

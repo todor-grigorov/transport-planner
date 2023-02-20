@@ -9,16 +9,17 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method === 'GET') {
-    console.log(res);
-    const { departure, destination } = req.query;
+    const { departure, destination, page } = req.query;
+    console.log(departure, destination, page);
     let data = null;
 
     try {
       const response = await fetch(
-        `http://transport.opendata.ch/v1/connections?from=${departure?.toString()}&to=${destination?.toString()}`
+        `http://transport.opendata.ch/v1/connections?from=${departure?.toString()}&to=${destination?.toString()}&page=${page}`
       );
 
       data = await response.json();
+      // console.log(response.data);
     } catch (e) {
       console.log('ERROR', e);
     }

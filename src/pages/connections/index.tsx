@@ -7,6 +7,7 @@ import styles from '@/styles/LocationList.module.scss';
 import Link from 'next/link';
 import Button from '../../components/Cards/Button';
 import { PaginationButtonText } from '@/Types/PaginationButtonText';
+import { LinearProgress } from '@mui/material';
 
 type Props = {
   data: ConnectionsResponse;
@@ -19,19 +20,33 @@ const ConnectionsList: React.FC<Props> = ({
   departure,
   destination,
 }: Props) => {
-  const { connections } = data;
-
+  const [allData, setAllData] = useState(data);
   const [page, setPage] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const { connections } = allData;
 
-  const pageButtonsHandler = (
+  const pageButtonsHandler = async (
     e: SyntheticEvent<HTMLButtonElement, MouseEvent>,
     text: string
   ) => {
-    console.log(e);
-    if (text === PaginationButtonText.NEXT) {
-      console.log('Next');
-    } else {
-      console.log('Previous');
+    setLoading(true);
+    let tempData = null;
+
+    let tempPage = text === PaginationButtonText.NEXT ? page + 1 : page - 1;
+    if (page > 3) tempPage = 3;
+    if (page < 0) tempPage = 0;
+
+    try {
+      const res = await fetch(
+        `/api/locations?departure=${departure}&destination=${destination}&page=${tempPage}`
+      );
+      tempData = await res.json();
+      setPage(tempPage);
+      setAllData(tempData);
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      console.log('ERROR', e);
     }
   };
 
@@ -46,17 +61,35 @@ const ConnectionsList: React.FC<Props> = ({
         </div>
       </div>
       <div className={styles.locationCardsList}>
-        {connections.map((connection) => (
+        {connections?.map((connection) => (
           <TripCard
             key={`${connection.from.departure}-${connection.to.arrival}`}
             connection={connection}
           />
         ))}
         <div className={styles.buttons__container}>
-          <Button text={'Previous'} handler={pageButtonsHandler} />
-          <Button text={'Next'} handler={pageButtonsHandler} />
+          {page > 0 ? (
+            <Button
+              text={'Previous'}
+              handler={pageButtonsHandler}
+              loading={loading}
+            />
+          ) : null}
+          <p>{`Page ${page + 1}`}</p>
+          {page <= 2 ? (
+            <Button
+              text={'Next'}
+              handler={pageButtonsHandler}
+              loading={loading}
+            />
+          ) : null}
         </div>
       </div>
+      {loading ? (
+        <div className={styles.loader}>
+          <LinearProgress />
+        </div>
+      ) : null}
     </div>
   );
 };

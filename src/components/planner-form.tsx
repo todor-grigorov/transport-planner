@@ -25,16 +25,6 @@ const PlannerForm: React.FC = (): JSX.Element => {
         })}
         onSubmit={async (values, formikHelpers) => {
           const { departure, destination } = values;
-          // let data = null;
-          //
-          // try {
-          //   const res = await fetch(
-          //     `/api/locations?departure=${departure}&destination=${destination}`
-          //   );
-          //   data = await res.json();
-          // } catch (e) {
-          //   console.log('ERROR', e);
-          // }
 
           formikHelpers.resetForm();
           router.push({
