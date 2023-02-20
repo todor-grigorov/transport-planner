@@ -1,17 +1,24 @@
 import React from 'react';
 import { Card } from '@mui/material';
 import { Connection } from '../../Types/LocationsTypes';
-import { constructTime, getDate, getTravelTime } from '../../helpers/common';
+import {
+  constructApiTime,
+  constructTime,
+  getDate,
+  getTravelTime,
+} from '../../helpers/common';
 import styles from '@/styles/LocationList.module.scss';
 import Link from 'next/link';
 
 interface ParentProps {
   connection: Connection;
+  from: string;
+  to: string;
 }
 
 type Props = ParentProps;
 
-const TripCard: React.FC<Props> = ({ connection }): JSX.Element => {
+const TripCard: React.FC<Props> = ({ connection, from, to }): JSX.Element => {
   return (
     <Card elevation={2} className={styles.locationCard}>
       <div className={styles.locationCard__topRow}>
@@ -44,10 +51,10 @@ const TripCard: React.FC<Props> = ({ connection }): JSX.Element => {
           href={{
             pathname: 'connections/details',
             query: {
-              from: connection.from.location.name,
-              to: connection.to.location.name,
+              from: from,
+              to: to,
               date: getDate(connection.from.departure),
-              time: constructTime(connection.from.departure),
+              time: constructApiTime(connection.from.departure),
               duration: connection.duration,
             },
           }}

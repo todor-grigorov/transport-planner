@@ -6,14 +6,14 @@ jest.mock('next/router', () => require('next-router-mock'));
 
 describe('Trip Card', () => {
   it('should render correct departure location', () => {
-    render(<TripCard connection={connection} />);
+    render(<TripCard connection={connection} from={'Basel'} to={'Zurich'} />);
 
     const element = screen.getByTestId('trip-departure');
     expect(element).toHaveTextContent('Basel SBB');
   });
 
   it('should render correct destination', () => {
-    render(<TripCard connection={connection} />);
+    render(<TripCard connection={connection} from={'Basel'} to={'Zurich'} />);
 
     const element = screen.getByTestId('trip-destination');
     expect(element).toHaveTextContent('Zürich HB');

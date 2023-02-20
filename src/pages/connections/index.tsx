@@ -66,6 +66,8 @@ const ConnectionsList: React.FC<Props> = ({
           <TripCard
             key={`${connection.from.departure}-${connection.to.arrival}`}
             connection={connection}
+            from={departure}
+            to={destination}
           />
         ))}
         <div className={styles.buttons__container}>

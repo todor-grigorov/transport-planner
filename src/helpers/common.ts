@@ -16,6 +16,38 @@ export const constructTime = (data: string): string => {
   return `${hours}:${minutes}`;
 };
 
+export const constructApiTime = (data: string): string => {
+  const date = new Date(data);
+  let tempHours = date.getHours();
+  let tempMinutes = date.getMinutes();
+  let hours = tempHours.toString();
+  let minutes = tempMinutes.toString();
+
+  // tempMinutes = tempMinutes - 8 < 0 ? 60 + tempMinutes - 8 : tempMinutes - 8;
+
+  if (tempMinutes - 8 < 0) {
+    tempMinutes = 60 + tempMinutes - 8;
+
+    if (tempHours === 0) {
+      tempHours = 23;
+    } else {
+      tempHours -= 1;
+    }
+  } else {
+    tempMinutes -= 8;
+  }
+
+  if (tempHours < 10) {
+    hours = `0${tempHours}`;
+  }
+
+  if (tempMinutes < 10) {
+    minutes = `0${tempMinutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+};
+
 export const getTravelTime = (data: string): string => {
   const splitArr = data.split('d');
   let time = splitArr[1].split(':');

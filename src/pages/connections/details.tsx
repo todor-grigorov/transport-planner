@@ -14,9 +14,10 @@ type Props = {
   data: Connection;
   departure: string;
   destination: string;
+  total: any;
 };
-const ConnectionDetails = ({ data, departure, destination }: Props) => {
-  console.log('Details: ', data);
+const ConnectionDetails = ({ data, departure, destination, total }: Props) => {
+  console.log('Details: ', total);
 
   if (!data || !Object.keys(data).length) return <div>No details</div>;
 
@@ -63,6 +64,9 @@ export default ConnectionDetails;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { from, to, date, time, duration } = context.query;
+  console.log(
+    `http://transport.opendata.ch/v1/connections?from=${from}&to=${to}&date=${date}&time=${time}`
+  );
 
   let response = null;
 
@@ -86,6 +90,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       data: connection || {},
       departure: from,
       destination: to,
+      total: data.connections,
     },
   };
 }
