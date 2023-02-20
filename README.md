@@ -1,4 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project that uses Typescript.
+
+Project is deployed to Vercel (https://transport-planner.vercel.app/) and has working CI/CD pipelines using Github Actions.
+
+
+This is Transport Planner App for Switzerland. Using the app you can find train connections in Switzerland.
 
 ## Getting Started
 
