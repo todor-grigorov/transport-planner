@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-height: 550px;
+  min-height: 300px;
+
+  > p {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    align-self: flex-start;
+  }
+
+  > p:nth-of-type(2) {
+    align-self: flex-end;
+    font-style: oblique;
+    font-weight: 700;
+  }
+
+  > a {
+    font-weight: 700;
+    font-size: 1.3rem;
+    align-self: flex-end;
+    font-style: oblique;
+    border-radius: 5px;
+    border: 1px solid #333333;
+    padding: 0.5rem;
+
+    &:hover {
+      background-color: #333333;
+      color: white;
+    }
+  }
+}
+
+.container :nth-child(1) {
+  align-self: flex-end;
+}
+
+.heading {
+  align-self: flex-end;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
