@@ -20,7 +20,7 @@ const TripCard: React.FC<Props> = ({ connection }): JSX.Element => {
       <div className={styles.locationCard__middleRow}>
         <div className={styles.locationCard__middleRow_departureInfo}>
           <p>{constructTime(connection.from.departure)}</p>
-          <p>{connection.from.location.name}</p>
+          <p data-testid="trip-departure">{connection.from.location.name}</p>
         </div>
         <div className={styles.locationCard__middleRow_journeyInfo}>
           <p>{getTravelTime(connection.duration)}</p>
@@ -36,7 +36,7 @@ const TripCard: React.FC<Props> = ({ connection }): JSX.Element => {
         </div>
         <div className={styles.locationCard__middleRow_destinationInfo}>
           <p>{constructTime(connection.to.arrival)}</p>
-          <p>{connection.to.location.name}</p>
+          <p data-testid="trip-destination">{connection.to.location.name}</p>
         </div>
       </div>
       <div className={styles.locationCard__bottomRow}>

@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '@/styles/LocationList.module.scss';
-import { constructTime } from '@/helpers/common';
 import { Card } from '@mui/material';
-import { Section } from '@/Types/LocationsTypes';
+import { constructTime } from '../../helpers/common';
+import { Section } from '../../Types/LocationsTypes';
+import styles from '@/styles/LocationList.module.scss';
 
 interface ParentProps {
   section: Section;
@@ -29,7 +29,10 @@ const MyComponent: React.FC<Props> = ({
       <div className={styles.locationCard__middleRow}>
         <div className={styles.locationCard__middleRow_departureInfo}>
           <p>{constructTime(section.departure.departure)}</p>
-          <p style={{ fontWeight: index === 0 ? 700 : 500 }}>
+          <p
+            data-testid="details-departure"
+            style={{ fontWeight: index === 0 ? 700 : 500 }}
+          >
             {section.departure.location.name}
           </p>
         </div>
@@ -45,7 +48,10 @@ const MyComponent: React.FC<Props> = ({
         </div>
         <div className={styles.locationCard__middleRow_destinationInfo}>
           <p>{constructTime(section.arrival.arrival)}</p>
-          <p style={{ fontWeight: index === lastIndex ? 700 : 500 }}>
+          <p
+            data-testid="details-destination"
+            style={{ fontWeight: index === lastIndex ? 700 : 500 }}
+          >
             {section.arrival.location.name}
           </p>
         </div>
