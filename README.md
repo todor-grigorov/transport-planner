@@ -2,7 +2,17 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install all dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -21,6 +31,40 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Build
+
+If you want to build the app:
+
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+```
+
+## Tests
+
+If you want to run e2e tests:
+
+```bash
+npm run cypress:open
+# or
+yarn cypress:open
+# or
+pnpm cypress:open
+```
+
+If you want to run unit tests:
+
+```bash
+npm run test
+# or
+yarn test
+# or
+pnpm test
+```
 
 ## Learn More
 
