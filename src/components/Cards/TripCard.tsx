@@ -27,7 +27,11 @@ const TripCard: React.FC<Props> = ({ connection }): JSX.Element => {
             <div></div>
             <div></div>
           </div>
-          <p>{`${connection.transfers} Change`}</p>
+          <p>
+            {connection.transfers > 0
+              ? `${connection.transfers} Change`
+              : 'Direct'}
+          </p>
         </div>
         <div className={styles.locationCard__middleRow_destinationInfo}>
           <p>{constructTime(connection.to.arrival)}</p>
