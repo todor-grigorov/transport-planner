@@ -68,21 +68,19 @@ const ConnectionsList: React.FC<Props> = ({
           />
         ))}
         <div className={styles.buttons__container}>
-          {page > 0 ? (
-            <Button
-              text={'Previous'}
-              handler={pageButtonsHandler}
-              loading={loading}
-            />
-          ) : null}
+          <Button
+            text={'Previous'}
+            handler={pageButtonsHandler}
+            loading={loading}
+            visibility={page > 0}
+          />
           <p>{`Page ${page + 1}`}</p>
-          {page <= 2 ? (
-            <Button
-              text={'Next'}
-              handler={pageButtonsHandler}
-              loading={loading}
-            />
-          ) : null}
+          <Button
+            text={'Next'}
+            handler={pageButtonsHandler}
+            loading={loading}
+            visibility={page <= 2}
+          />
         </div>
       </div>
       {loading ? (
