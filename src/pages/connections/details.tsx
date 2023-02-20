@@ -8,6 +8,7 @@ import {
 import styles from '@/styles/LocationList.module.scss';
 import axios from 'axios';
 import TripDetailsCard from '@/components/Cards/TripDetailsCard';
+import Link from 'next/link';
 
 type Props = {
   data: Connection;
@@ -17,7 +18,7 @@ type Props = {
 const ConnectionDetails = ({ data, departure, destination }: Props) => {
   console.log('Details: ', data);
 
-  if (!data) return <div>No details</div>;
+  if (!data || !Object.keys(data).length) return <div>No details</div>;
 
   const lastIndex = data?.sections.length - 1;
 
@@ -25,6 +26,14 @@ const ConnectionDetails = ({ data, departure, destination }: Props) => {
     <div className={styles.connections__container}>
       <div className={styles.header__container}>
         <h3>{`Details for trip from ${departure} to ${destination} on ${new Date().toDateString()}. `}</h3>
+        <div>
+          <Link
+            href={`/connections?departure=${departure}&destination=${destination}`}
+            passHref
+          >
+            BACK
+          </Link>
+        </div>
       </div>
       <div className={styles.locationCardsList}>
         {data?.sections.map((section: Section, index: number) => (
@@ -53,7 +62,7 @@ const ConnectionDetails = ({ data, departure, destination }: Props) => {
 export default ConnectionDetails;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { from, to, date, time } = context.query;
+  const { from, to, date, time, duration } = context.query;
 
   let response = null;
 
@@ -70,9 +79,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const { data }: { data: ConnectionsResponse } = response;
 
+  const connection = data.connections.find((c) => c.duration === duration);
+
   return {
     props: {
-      data: data.connections[0],
+      data: connection || {},
       departure: from,
       destination: to,
     },

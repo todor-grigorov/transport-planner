@@ -48,6 +48,7 @@ const TripCard: React.FC<Props> = ({ connection }): JSX.Element => {
               to: connection.to.location.name,
               date: getDate(connection.from.departure),
               time: constructTime(connection.from.departure),
+              duration: connection.duration,
             },
           }}
         >

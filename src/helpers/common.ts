@@ -71,5 +71,5 @@ export const getDate = (data: string): string => {
     day = `0${day}`;
   }
 
-  return `${day}.${month}.${year}`;
+  return `${year}-${month}-${day}`;
 };
