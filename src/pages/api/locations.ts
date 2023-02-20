@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { config } from '@/configs/config';
 
 type Data = {
   from: string;
@@ -15,11 +16,12 @@ export default async function handler(
 
     try {
       const response = await fetch(
-        `http://transport.opendata.ch/v1/connections?from=${departure?.toString()}&to=${destination?.toString()}&page=${page}`
+        `${
+          config.connectionsURL
+        }?from=${departure?.toString()}&to=${destination?.toString()}&page=${page}`
       );
 
       data = await response.json();
-      // console.log(response.data);
     } catch (e) {
       console.log('ERROR', e);
     }

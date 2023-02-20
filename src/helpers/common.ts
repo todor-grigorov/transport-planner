@@ -1,3 +1,7 @@
+/**
+ * Constructs Time in format hh:mm by given time string
+ * @param data
+ */
 export const constructTime = (data: string): string => {
   const date = new Date(data);
   const tempHours = date.getHours();
@@ -16,6 +20,10 @@ export const constructTime = (data: string): string => {
   return `${hours}:${minutes}`;
 };
 
+/**
+ * Constructs Time in format hh:mm by given time string, where from minutes are subtracted certain amount
+ * @param data
+ */
 export const constructApiTime = (data: string): string => {
   const date = new Date(data);
   let tempHours = date.getHours();
@@ -48,6 +56,10 @@ export const constructApiTime = (data: string): string => {
   return `${hours}:${minutes}`;
 };
 
+/**
+ * Constructs travel time in the format [days, hours, minutes] for render
+ * @param data
+ */
 export const getTravelTime = (data: string): string => {
   const splitArr = data.split('d');
   let time = splitArr[1].split(':');
@@ -89,6 +101,10 @@ export const getTravelTime = (data: string): string => {
   return `${daysText}${hours} hours ${minutes} minutes`;
 };
 
+/**
+ * Construncts date in the format yyyy-mm-dd by give date string
+ * @param data
+ */
 export const getDate = (data: string): string => {
   const date = new Date(data);
   const year = date.getFullYear();

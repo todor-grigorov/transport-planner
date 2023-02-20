@@ -6,6 +6,10 @@ import styles from '@/styles/Header.module.scss';
 
 export const Header: React.FC = (): JSX.Element => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  /**
+   * Toggles hamburger button for mobile view
+   */
   const menuToggler = () => setMenuOpen((p) => !p);
 
   return (

@@ -8,6 +8,7 @@ import styles from '@/styles/LocationList.module.scss';
 import Link from 'next/link';
 import Button from '../../components/Cards/Button';
 import { PaginationButtonText } from '../../Types/PaginationButtonText';
+import { config } from '@/configs/config';
 
 type Props = {
   data: ConnectionsResponse;
@@ -99,12 +100,16 @@ export default ConnectionsList;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { departure, destination } = context.query;
-  // const { data } = context.query;
   let response = null;
 
   try {
+    /**
+     * Gets Connections from API
+     */
     response = await axios.get(
-      `http://transport.opendata.ch/v1/connections?from=${departure?.toString()}&to=${destination?.toString()}`
+      `${
+        config.connectionsURL
+      }?from=${departure?.toString()}&to=${destination?.toString()}`
     );
   } catch (e) {
     console.log('ERROR', e);

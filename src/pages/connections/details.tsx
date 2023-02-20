@@ -9,16 +9,14 @@ import styles from '@/styles/LocationList.module.scss';
 import axios from 'axios';
 import TripDetailsCard from '@/components/Cards/TripDetailsCard';
 import Link from 'next/link';
+import { config } from '@/configs/config';
 
 type Props = {
   data: Connection;
   departure: string;
   destination: string;
-  total: any;
 };
-const ConnectionDetails = ({ data, departure, destination, total }: Props) => {
-  console.log('Details: ', total);
-
+const ConnectionDetails = ({ data, departure, destination }: Props) => {
   if (!data || !Object.keys(data).length) return <div>No details</div>;
 
   const lastIndex = data?.sections.length - 1;
@@ -64,15 +62,18 @@ export default ConnectionDetails;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { from, to, date, time, duration } = context.query;
-  console.log(
-    `http://transport.opendata.ch/v1/connections?from=${from}&to=${to}&date=${date}&time=${time}`
-  );
+  // console.log(
+  //   `http://transport.opendata.ch/v1/connections?from=${from}&to=${to}&date=${date}&time=${time}`
+  // );
 
   let response = null;
 
   try {
+    /**
+     * Gets Connections from API
+     */
     response = await axios.get(
-      `http://transport.opendata.ch/v1/connections?from=${from}&to=${to}&date=${date}&time=${time}`
+      `${config.connectionsURL}?from=${from}&to=${to}&date=${date}&time=${time}`
     );
   } catch (e) {
     console.log('ERROR', e);
@@ -90,7 +91,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       data: connection || {},
       departure: from,
       destination: to,
-      total: data.connections,
     },
   };
 }
