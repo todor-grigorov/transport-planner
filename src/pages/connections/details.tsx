@@ -48,7 +48,9 @@ const ConnectionDetails = ({ data, departure, destination }: Props) => {
                 </div>
                 <div className={styles.locationCard__middleRow_journeyInfo}>
                   {/*<p>{getTravelTime(connection.duration)}</p>*/}
-                  <div className={styles.durationLine}>
+                  <div
+                    className={`${styles.durationLine} ${styles.details_durationLine}`}
+                  >
                     <div></div>
                     <div></div>
                   </div>
