@@ -45,10 +45,6 @@ const ConnectionDetails = ({ data, departure, destination }: Props) => {
                   <p style={{ fontWeight: index === 0 ? 700 : 500 }}>
                     {section.departure.location.name}
                   </p>
-                  <div>
-                    <p>{`Track: ${section.departure.platform}, `}</p>
-                    <p>{`Train: ${section.journey.number}`}</p>
-                  </div>
                 </div>
                 <div className={styles.locationCard__middleRow_journeyInfo}>
                   {/*<p>{getTravelTime(connection.duration)}</p>*/}
@@ -63,9 +59,15 @@ const ConnectionDetails = ({ data, departure, destination }: Props) => {
                   <p style={{ fontWeight: index === lastIndex ? 700 : 500 }}>
                     {section.arrival.location.name}
                   </p>
-                  <div>
-                    <p>{`Track: ${section.arrival.platform}`}</p>
-                  </div>
+                </div>
+              </div>
+              <div className={styles.locationCard__bottomRow_trackInfo}>
+                <div>
+                  <p>{`Track: ${section.departure.platform}`}</p>
+                  <p>{`Train: ${section.journey.number}`}</p>
+                </div>
+                <div>
+                  <p>{`Track: ${section.arrival.platform}`}</p>
                 </div>
               </div>
             </Card>
