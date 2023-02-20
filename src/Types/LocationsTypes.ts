@@ -1,4 +1,4 @@
-export type LocationsTypes = {
+export type Locations = {
   from: Checkpoint;
   to: Checkpoint;
   duration: string;

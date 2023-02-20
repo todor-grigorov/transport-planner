@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import axios from 'axios';
 
 type Data = {
   from: string;
@@ -12,11 +11,18 @@ export default async function handler(
   if (req.method === 'GET') {
     console.log(res);
     const { departure, destination } = req.query;
+    let data = null;
 
-    const response = await axios.get(
-      `http://transport.opendata.ch/v1/connections?from=${departure?.toString()}&to=${destination?.toString()}`
-    );
+    try {
+      const response = await fetch(
+        `http://transport.opendata.ch/v1/connections?from=${departure?.toString()}&to=${destination?.toString()}`
+      );
 
-    console.log(response.data.connections);
+      data = await response.json();
+    } catch (e) {
+      console.log('ERROR', e);
+    }
+
+    res.status(200).json(data);
   }
 }
