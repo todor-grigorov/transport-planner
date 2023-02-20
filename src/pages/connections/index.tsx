@@ -6,6 +6,7 @@ import { Connection, ConnectionsResponse } from '../../Types/LocationsTypes';
 import styles from '@/styles/LocationList.module.scss';
 import Link from 'next/link';
 import Button from '../../components/Cards/Button';
+import { PaginationButtonText } from '@/Types/PaginationButtonText';
 
 type Props = {
   data: ConnectionsResponse;
@@ -18,15 +19,20 @@ const ConnectionsList: React.FC<Props> = ({
   departure,
   destination,
 }: Props) => {
-  console.log(data);
   const { connections } = data;
 
   const [page, setPage] = useState(0);
 
   const pageButtonsHandler = (
-    e: SyntheticEvent<HTMLButtonElement, MouseEvent>
+    e: SyntheticEvent<HTMLButtonElement, MouseEvent>,
+    text: string
   ) => {
     console.log(e);
+    if (text === PaginationButtonText.NEXT) {
+      console.log('Next');
+    } else {
+      console.log('Previous');
+    }
   };
 
   return (

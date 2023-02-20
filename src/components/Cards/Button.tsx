@@ -3,14 +3,17 @@ import { SyntheticEvent } from 'react';
 
 interface ParentProps {
   text: string;
-  handler: (e: SyntheticEvent<HTMLButtonElement, MouseEvent>) => void;
+  handler: (
+    e: SyntheticEvent<HTMLButtonElement, MouseEvent>,
+    text: string
+  ) => void;
 }
 
 type Props = ParentProps;
 
 const Button: React.FC<Props> = ({ text, handler }): JSX.Element => {
   return (
-    <button onClick={handler} className={styles.button}>
+    <button onClick={(e) => handler(e, text)} className={styles.button}>
       {text}
     </button>
   );
