@@ -24,7 +24,9 @@ const ConnectionsList: React.FC<Props> = ({
       <div className={styles.header__container}>
         <h3>{`Tickets from ${departure} to ${destination} on ${new Date().toDateString()}. `}</h3>
         <div>
-          <Link href={'/'}>Edit Search.</Link>
+          <Link href={'/'} passHref>
+            Edit Search.
+          </Link>
         </div>
       </div>
       <div className={styles.locationCardsList}>
