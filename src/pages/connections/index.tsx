@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { GetServerSidePropsContext } from 'next';
 import axios from 'axios';
 import TripCard from '../../components/Cards/TripCard';
 import { Connection, ConnectionsResponse } from '../../Types/LocationsTypes';
 import styles from '@/styles/LocationList.module.scss';
 import Link from 'next/link';
+import Button from '../../components/Cards/Button';
 
 type Props = {
   data: ConnectionsResponse;
@@ -19,6 +20,15 @@ const ConnectionsList: React.FC<Props> = ({
 }: Props) => {
   console.log(data);
   const { connections } = data;
+
+  const [page, setPage] = useState(0);
+
+  const pageButtonsHandler = (
+    e: SyntheticEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    console.log(e);
+  };
+
   return (
     <div className={styles.connections__container}>
       <div className={styles.header__container}>
@@ -36,6 +46,10 @@ const ConnectionsList: React.FC<Props> = ({
             connection={connection}
           />
         ))}
+        <div className={styles.buttons__container}>
+          <Button text={'Previous'} handler={pageButtonsHandler} />
+          <Button text={'Next'} handler={pageButtonsHandler} />
+        </div>
       </div>
     </div>
   );
