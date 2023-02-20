@@ -4,6 +4,7 @@ import axios from 'axios';
 import TripCard from '../../components/Cards/TripCard';
 import { Connection, ConnectionsResponse } from '../../Types/LocationsTypes';
 import styles from '@/styles/LocationList.module.scss';
+import Link from 'next/link';
 
 type Props = {
   data: ConnectionsResponse;
@@ -19,13 +20,11 @@ const ConnectionsList: React.FC<Props> = ({
   console.log(data);
   const { connections } = data;
   return (
-    // data.map(locations => )
-
     <div className={styles.connections__container}>
       <div className={styles.header__container}>
         <h3>{`Tickets from ${departure} to ${destination} on ${new Date().toDateString()}. `}</h3>
         <div>
-          <span>Edit Search.</span>
+          <Link href={'/'}>Edit Search.</Link>
         </div>
       </div>
       <div className={styles.locationCardsList}>
