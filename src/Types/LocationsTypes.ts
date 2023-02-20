@@ -19,11 +19,11 @@ export type Connection = {
 
 export type Checkpoint = {
   station: Location;
-  arrival: string | null;
+  arrival: string;
   arrivalTimestamp: number;
   departure: string;
   departureTimestamp: number;
-  delay: string | null;
+  delay: string;
   platform: string;
   prognosis: Prognosis;
   realtimeAvailability: string | null;

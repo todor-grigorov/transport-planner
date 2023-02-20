@@ -1,9 +1,9 @@
 import React from 'react';
 import { GetServerSidePropsContext } from 'next';
 import axios from 'axios';
-import { Connection, ConnectionsResponse } from '@/Types/LocationsTypes';
+import TripCard from '../../components/Cards/TripCard';
+import { Connection, ConnectionsResponse } from '../../Types/LocationsTypes';
 import styles from '@/styles/LocationList.module.scss';
-import { Card } from '@mui/material';
 
 type Props = {
   data: ConnectionsResponse;
@@ -30,40 +30,10 @@ const ConnectionsList: React.FC<Props> = ({
       </div>
       <div className={styles.locationCardsList}>
         {connections.map((connection) => (
-          <Card elevation={2} className={styles.locationCard}>
-            <div className={styles.locationCard__topRow}>
-              <span>{new Date().toDateString()}</span>
-            </div>
-            <div className={styles.locationCard__middleRow}>
-              <div className={styles.locationCard__middleRow_departureInfo}>
-                <p>
-                  {`${new Date(
-                    connection.from.departureTimestamp
-                  ).getHours()}:${new Date(
-                    connection.from.departureTimestamp
-                  ).getMinutes()}`}
-                </p>
-                <p>{connection.from.location.name}</p>
-              </div>
-              <div className={styles.locationCard__middleRow_journeyInfo}>
-                <div className={styles.durationLine}>
-                  <div></div>
-                  <div></div>
-                </div>
-              </div>
-              <div className={styles.locationCard__middleRow_destinationInfo}>
-                <p>
-                  {`${new Date(
-                    connection.to.arrivalTimestamp
-                  ).getHours()}:${new Date(
-                    connection.to.arrivalTimestamp
-                  ).getMinutes()}`}
-                </p>
-                <p>{connection.from.location.name}</p>
-              </div>
-            </div>
-            <div className={styles.locationCard__bottomRow}></div>
-          </Card>
+          <TripCard
+            key={`${connection.from.departure}-${connection.to.arrival}`}
+            connection={connection}
+          />
         ))}
       </div>
     </div>
