@@ -2,6 +2,7 @@ import { TextField, Button } from '@mui/material';
 import { Field, Form, Formik } from 'formik';
 import { object, string } from 'yup';
 import styles from '@/styles/Home.module.scss';
+import { useRouter } from 'next/router';
 
 const initalValues = {
   departure: '',
@@ -9,6 +10,7 @@ const initalValues = {
 };
 
 const PlannerForm: React.FC = (): JSX.Element => {
+  const router = useRouter();
   return (
     <div className={styles.form}>
       <Formik
@@ -23,17 +25,12 @@ const PlannerForm: React.FC = (): JSX.Element => {
         })}
         onSubmit={async (values, formikHelpers) => {
           const { departure, destination } = values;
-          // const obj = { slug: [departure, destination] };
-
-          try {
-            await fetch(
-              `/api/locations?departure=${departure}&destination=${destination}`
-            );
-          } catch (e) {
-            console.log('ERROR', e);
-          }
 
           formikHelpers.resetForm();
+          router.push({
+            pathname: '/connections',
+            query: { departure, destination },
+          });
         }}
       >
         {({ errors, isValid, touched, dirty }) => (

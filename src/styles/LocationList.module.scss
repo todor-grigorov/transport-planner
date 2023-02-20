@@ -1,0 +1,168 @@
+.connections__container {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  margin-top: 2rem;
+}
+
+.header__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  > h3 {
+    margin-right: 0.5rem;
+    letter-spacing: 1px;
+  }
+
+  > div {
+    color: #ff4411;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    :hover {
+      color: coral;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    > h3 {
+      font-size: 0.75rem;
+      letter-spacing: 0;
+    }
+
+    > div {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.locationCardsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.locationCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  //max-width: 50%;
+  height: 144px;
+  width: 40rem;
+  margin-bottom: 1rem;
+
+  @media screen and (max-width: 700px) {
+    width: 19rem;
+    height: 100px;
+    font-size: 0.8rem;
+  }
+}
+
+.locationCard__topRow {
+  > p {
+    padding-left: 1rem;
+  }
+}
+
+.locationCard__middleRow {
+  display: flex;
+}
+
+.locationCard__middleRow_journeyInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (max-width: 700px) {
+    flex: 0.7;
+  }
+}
+
+.locationCard__middleRow_departureInfo,
+.locationCard__middleRow_destinationInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0.25;
+
+  p:first-of-type {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 0.7rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    p:first-of-type {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+  }
+}
+
+.durationLine {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid black;
+  //padding-top: 35px;
+  margin-top: 8px;
+
+  div {
+    background-color: white;
+    font-weight: bold;
+    color: #7ea5cc;
+    border: 2px solid black;
+    //margin-top: -45px;
+    margin-top: -9px;
+    width: 15px;
+    height: 15px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    z-index: 99;
+  }
+}
+
+.locationCard__bottomRow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  > div {
+    margin-right: 1rem;
+    color: #ff4411;
+    font-weight: 700;
+    cursor: pointer;
+
+    :hover {
+      color: coral;
+    }
+  }
+}
+
+.buttons__container {
+  width: 40rem;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 700px) {
+    width: 19rem;
+  }
+}
+
+.loader {
+  width: 40rem;
+  padding-top: 0.7rem;
+  margin: 0 auto;
+
+  @media screen and (max-width: 700px) {
+    width: 19rem;
+  }
+}

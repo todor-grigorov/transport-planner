@@ -35,7 +35,3 @@ export const Header: React.FC = (): JSX.Element => {
     </header>
   );
 };
-
-// const Button = () => {
-//   return <button className={styles.button}>Click me</button>;
-// };
