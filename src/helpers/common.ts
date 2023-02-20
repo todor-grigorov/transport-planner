@@ -56,3 +56,20 @@ export const getTravelTime = (data: string): string => {
   const daysText = Number(days) > 0 ? `${days} days, ` : '';
   return `${daysText}${hours} hours ${minutes} minutes`;
 };
+
+export const getDate = (data: string): string => {
+  const date = new Date(data);
+  const year = date.getFullYear();
+  let month: number | string = date.getMonth() + 1;
+  let day: number | string = date.getDate();
+
+  if (month <= 9) {
+    month = `0${month}`;
+  }
+
+  if (day <= 9) {
+    day = `0${day}`;
+  }
+
+  return `${day}.${month}.${year}`;
+};

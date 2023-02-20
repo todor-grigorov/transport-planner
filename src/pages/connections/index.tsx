@@ -25,6 +25,7 @@ const ConnectionsList: React.FC<Props> = ({
   const [loading, setLoading] = useState(false);
   const { connections } = allData;
 
+  console.log(allData);
   const pageButtonsHandler = async (
     e: SyntheticEvent<HTMLButtonElement, MouseEvent>,
     text: string
@@ -53,7 +54,7 @@ const ConnectionsList: React.FC<Props> = ({
   return (
     <div className={styles.connections__container}>
       <div className={styles.header__container}>
-        <h3>{`Tickets from ${departure} to ${destination} on ${new Date().toDateString()}. `}</h3>
+        <h3>{`Connections from ${departure} to ${destination} on ${new Date().toDateString()}. `}</h3>
         <div>
           <Link href={'/'} passHref>
             Edit Search.

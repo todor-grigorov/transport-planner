@@ -63,6 +63,10 @@
   }
 }
 
+.lightGreyBackground {
+  background-color: #f2f2f2;
+}
+
 .locationCard__topRow {
   > p {
     padding-left: 1rem;
@@ -92,16 +96,35 @@
   align-items: center;
   flex: 0.25;
 
-  p:first-of-type {
+  > p:first-of-type {
     font-weight: 700;
     font-size: 1.4rem;
     margin-bottom: 0.7rem;
   }
 
+  > p:last-of-type {
+    font-size: 1.2rem;
+  }
+
+  //> div {
+  //  display: flex;
+  //  font-size: 0.8rem;
+  //  font-style: oblique;
+  //  margin-top: 0.2rem;
+  //
+  //  > p:first-of-type {
+  //    margin-right: 0.2rem;
+  //  }
+  //}
+
   @media screen and (max-width: 700px) {
-    p:first-of-type {
+    > p:first-of-type {
       font-weight: 700;
       font-size: 1rem;
+    }
+
+    > p:last-of-type {
+      font-size: 12px;
     }
   }
 }
@@ -135,7 +158,7 @@
   justify-content: flex-end;
   align-items: center;
 
-  > div {
+  > a {
     margin-right: 1rem;
     color: #ff4411;
     font-weight: 700;
@@ -157,6 +180,20 @@
   }
 }
 
+.locationCard__bottomRow_trackInfo {
+  display: flex;
+  justify-content: space-between;
+  font-style: oblique;
+
+  > div:first-of-type {
+    margin-left: 1rem;
+  }
+
+  > div:last-of-type {
+    margin-right: 1rem;
+  }
+}
+
 .loader {
   width: 40rem;
   padding-top: 0.7rem;
@@ -165,4 +202,22 @@
   @media screen and (max-width: 700px) {
     width: 19rem;
   }
+}
+
+.noMarginBottom {
+  margin-bottom: 0;
+}
+
+.smallMarginBottom {
+  margin-bottom: 0.3rem;
+}
+
+.verticalLine {
+  border-left: 3px solid gray;
+  height: 5px;
+  margin-bottom: 3px;
+}
+
+.details_durationLine {
+  margin-top: 31px;
 }
