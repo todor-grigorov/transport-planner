@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from '@mui/material';
-import { Connection } from '@/Types/LocationsTypes';
+import { Connection } from '../../Types/LocationsTypes';
+import { constructTime } from '../../helpers/common';
 import styles from '@/styles/LocationList.module.scss';
 
 interface ParentProps {
@@ -17,11 +18,7 @@ const TripCard: React.FC<Props> = ({ connection }): JSX.Element => {
       </div>
       <div className={styles.locationCard__middleRow}>
         <div className={styles.locationCard__middleRow_departureInfo}>
-          <p>
-            {`${new Date(connection.from.departure).getHours()}:${new Date(
-              connection.from.departure
-            ).getMinutes()}`}
-          </p>
+          <p>{constructTime(connection.from.departure)}</p>
           <p>{connection.from.location.name}</p>
         </div>
         <div className={styles.locationCard__middleRow_journeyInfo}>
@@ -33,11 +30,7 @@ const TripCard: React.FC<Props> = ({ connection }): JSX.Element => {
           <p>{`${connection.transfers} Change`}</p>
         </div>
         <div className={styles.locationCard__middleRow_destinationInfo}>
-          <p>
-            {`${new Date(connection.to.arrival).getHours()}:${new Date(
-              connection.to.arrival
-            ).getMinutes()}`}
-          </p>
+          <p>{constructTime(connection.to.arrival)}</p>
           <p>{connection.to.location.name}</p>
         </div>
       </div>
