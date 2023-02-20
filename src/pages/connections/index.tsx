@@ -8,7 +8,7 @@ import styles from '@/styles/LocationList.module.scss';
 import Link from 'next/link';
 import Button from '../../components/Cards/Button';
 import { PaginationButtonText } from '../../Types/PaginationButtonText';
-import { config } from '@/configs/config';
+import { config } from '../../configs/config';
 
 type Props = {
   data: ConnectionsResponse;

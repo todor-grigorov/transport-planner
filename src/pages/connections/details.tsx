@@ -1,15 +1,15 @@
 import React from 'react';
 import { GetServerSidePropsContext } from 'next';
+import Link from 'next/link';
+import axios from 'axios';
 import {
   Connection,
   ConnectionsResponse,
   Section,
 } from '@/Types/LocationsTypes';
 import styles from '@/styles/LocationList.module.scss';
-import axios from 'axios';
-import TripDetailsCard from '@/components/Cards/TripDetailsCard';
-import Link from 'next/link';
-import { config } from '@/configs/config';
+import TripDetailsCard from '../../components/Cards/TripDetailsCard';
+import { config } from '../../configs/config';
 
 type Props = {
   data: Connection;
