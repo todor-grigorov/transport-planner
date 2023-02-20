@@ -2,16 +2,31 @@ import React from 'react';
 import { GetServerSidePropsContext } from 'next';
 import axios from 'axios';
 import { Locations } from '@/Types/LocationsTypes';
+import styles from '@/styles/LocationList.module.scss';
 
 type Props = {
   data: Locations;
+  departure: string;
+  destination: string;
 };
 
-const ConnectionsList: React.FC<Props> = ({ data }: Props) => {
+const ConnectionsList: React.FC<Props> = ({
+  data,
+  departure,
+  destination,
+}: Props) => {
   console.log(data);
   return (
     // data.map(locations => )
-    <div></div>
+
+    <div>
+      <div className={styles.header__container}>
+        <h3>{`Tickets from ${departure} to ${destination} on ${new Date().toLocaleDateString()}. `}</h3>
+        <div>
+          <span>Edit Search.</span>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -37,6 +52,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {
     props: {
       data,
+      departure,
+      destination,
     },
   };
 }

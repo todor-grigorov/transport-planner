@@ -1,0 +1,17 @@
+.header__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > h3 {
+    margin-right: 0.5rem;
+    letter-spacing: 1px;
+  }
+
+  > div {
+    color: #ff4411;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+}
