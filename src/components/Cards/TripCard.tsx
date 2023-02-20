@@ -41,7 +41,11 @@ const TripCard: React.FC<Props> = ({ connection }): JSX.Element => {
           <p>{connection.to.location.name}</p>
         </div>
       </div>
-      <div className={styles.locationCard__bottomRow}></div>
+      <div className={styles.locationCard__bottomRow}>
+        <div>
+          <span>View journey details</span>
+        </div>
+      </div>
     </Card>
   );
 };
