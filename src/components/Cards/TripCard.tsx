@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card } from '@mui/material';
 import { Connection } from '../../Types/LocationsTypes';
-import { constructTime, getTravelTime } from '../../helpers/common';
+import { constructTime, getDate, getTravelTime } from '../../helpers/common';
 import styles from '@/styles/LocationList.module.scss';
+import Link from 'next/link';
 
 interface ParentProps {
   connection: Connection;
@@ -39,9 +40,19 @@ const TripCard: React.FC<Props> = ({ connection }): JSX.Element => {
         </div>
       </div>
       <div className={styles.locationCard__bottomRow}>
-        <div>
+        <Link
+          href={{
+            pathname: 'connections/details',
+            query: {
+              from: connection.from.location.name,
+              to: connection.to.location.name,
+              date: getDate(connection.from.departure),
+              time: constructTime(connection.from.departure),
+            },
+          }}
+        >
           <span>View journey details</span>
-        </div>
+        </Link>
       </div>
     </Card>
   );

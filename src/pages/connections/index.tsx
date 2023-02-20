@@ -25,6 +25,7 @@ const ConnectionsList: React.FC<Props> = ({
   const [loading, setLoading] = useState(false);
   const { connections } = allData;
 
+  console.log(allData);
   const pageButtonsHandler = async (
     e: SyntheticEvent<HTMLButtonElement, MouseEvent>,
     text: string
