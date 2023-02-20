@@ -36,6 +36,7 @@ const PlannerForm: React.FC = (): JSX.Element => {
         {({ errors, isValid, touched, dirty }) => (
           <Form>
             <Field
+              data-testid="departure-input"
               name="departure"
               type="text"
               as={TextField}
@@ -47,6 +48,7 @@ const PlannerForm: React.FC = (): JSX.Element => {
             />
 
             <Field
+              data-testid="destination-input"
               name="destination"
               type="text"
               as={TextField}

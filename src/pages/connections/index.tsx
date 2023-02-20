@@ -1,13 +1,13 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { GetServerSidePropsContext } from 'next';
 import axios from 'axios';
+import { LinearProgress } from '@mui/material';
 import TripCard from '../../components/Cards/TripCard';
 import { Connection, ConnectionsResponse } from '../../Types/LocationsTypes';
 import styles from '@/styles/LocationList.module.scss';
 import Link from 'next/link';
 import Button from '../../components/Cards/Button';
-import { PaginationButtonText } from '@/Types/PaginationButtonText';
-import { LinearProgress } from '@mui/material';
+import { PaginationButtonText } from '../../Types/PaginationButtonText';
 
 type Props = {
   data: ConnectionsResponse;
@@ -54,9 +54,9 @@ const ConnectionsList: React.FC<Props> = ({
   return (
     <div className={styles.connections__container}>
       <div className={styles.header__container}>
-        <h3>{`Connections from ${departure} to ${destination} on ${new Date().toDateString()}. `}</h3>
+        <h3>{`Connections from ${departure} to ${destination} on ${new Date().toDateString()}.`}</h3>
         <div>
-          <Link href={'/'} passHref>
+          <Link data-testid="connections-link" href={'/'} passHref>
             Edit Search.
           </Link>
         </div>

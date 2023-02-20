@@ -12,4 +12,36 @@ describe('Home', () => {
 
     expect(heading).toBeInTheDocument();
   });
+
+  it('renders first input', () => {
+    render(<HomePage />);
+
+    const input = screen.getByTestId('departure-input');
+
+    expect(input).toBeInTheDocument();
+  });
+
+  it('renders second input', () => {
+    render(<HomePage />);
+
+    const input = screen.getByTestId('destination-input');
+
+    expect(input).toBeInTheDocument();
+  });
+
+  it('renders button', () => {
+    render(<HomePage />);
+
+    const button = screen.getByRole('button');
+
+    expect(button).toBeInTheDocument();
+  });
+
+  it('renders button of type submit', () => {
+    render(<HomePage />);
+
+    const button = screen.getByRole('button');
+
+    expect(button).toHaveProperty('type', 'submit');
+  });
 });
